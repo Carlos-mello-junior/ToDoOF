@@ -107,11 +107,20 @@ def concluir_tarefa():
     listar_nomes()
     print("")
     alterar = str(input("Qual tarefa deseja concluir?: "))
+    validacao = True
     for i in lista:
         if i['tarefa'] == alterar:
-            i['status'] = 'concluido'
-            system('cls')
-            print("Tarefa concluida!!!")
+            validacao = False
+            if i['status'] == 'pendente':
+                i['status'] = 'concluido'
+                system('cls')
+                print("Tarefa concluida!!!")
+            else:
+                system('cls')
+                print("Tarefa já estava concluida!!!")
+    if validacao == True:
+        system('cls')
+        print("Tarefa não encontrada")
     
 def listar_tarefas():
     for i in lista:
@@ -126,21 +135,28 @@ def pesquisar_tarefa():
     print("")
     Escolha = str(input('Qual tarefa você deseja pesquisar? '))
     system('cls')
+    validacao = True
     for c in lista:
         if c ['tarefa'] == Escolha:
+            validacao = False
             print(f"Tarefa: {c['tarefa']}")
             print(f"Data: {c['data']}")
             print(f"Local: {c['local']}")
             print(f"Status: {c['status']}")
             print("-------------------------------------------")
+    if validacao == True:
+        system('cls')
+        print("Tarefa não encontrada!!!")
 
 def editar_tarefa():
     listar_nomes()
     print("")
     editar = input("Qual tarefa deseja editar?: ")
     system('cls')
+    validacao = True
     for i in lista:
         if i['tarefa'] == editar:
+            validacao = False
             print(f'''-------------------------------------------
 Tarefa: {i['tarefa']}
 Data: {i['data']}
@@ -181,9 +197,14 @@ Status: {i['status']}
                     }
                     system('cls')
                     print("Alterado com sucesso!!!")
+    if validacao == True:
+        #system('cls')
+        print("Tarefa não encontrada!!!")
+
 
 def excluir_tarefa():
     listar_nomes()
+    print('')
     tarefa = str(input("Qual tarefa deseja excluir: "))
     for i in lista:
         if i['tarefa'] == tarefa:

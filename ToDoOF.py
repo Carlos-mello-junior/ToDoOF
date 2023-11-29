@@ -198,20 +198,24 @@ Status: {i['status']}
                     system('cls')
                     print("Alterado com sucesso!!!")
     if validacao == True:
-        #system('cls')
+        system('cls')
         print("Tarefa não encontrada!!!")
-
 
 def excluir_tarefa():
     listar_nomes()
     print('')
     tarefa = str(input("Qual tarefa deseja excluir: "))
+    validacao = True
     for i in lista:
         if i['tarefa'] == tarefa:
+            validacao = False
             local = lista.index(i)
             lista.pop(local)
             system('cls')
             print("excluido com sucesso!!!")       
+    if validacao == True:
+        system('cls')
+        print("Tarefa não encontrada!!!")
 
 def programa():
     while True:

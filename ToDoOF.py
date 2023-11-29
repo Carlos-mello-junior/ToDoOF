@@ -23,7 +23,7 @@ def menu_principal():
 7 - Sair
 -------------------------------------------''')
     escolha = int(input("Opção: "))
-    system('cls')
+    system('clear')
     return escolha
 
 def menu_editar():
@@ -86,7 +86,7 @@ def validar_data(data: str):
 
 def cadastrar():
     tarefa_input = str(input("Tarefa: "))
-    data = str(input("Data da tarefa: "))
+    data = str(input("Data da tarefa (dd/mm/aa): "))
     local = str(input("local: "))
     if validar_data(data) == True:
         tarefa["tarefa"] = tarefa_input
@@ -95,31 +95,31 @@ def cadastrar():
         tarefa["status"] = "pendente"
         lista.append(tarefa.copy())
         tarefa.clear()
-        system("cls")
+        system("clear")
         print("Adcionado com sucesso!")
         sleep(0.8)
     else:
-        system("cls")
+        system("clear")
         print("Dados inválidos, tarefa não adcionada.")
         sleep(0.8)
 
 def concluir_tarefa():
     listar_nomes()
     print("")
-    alterar = str(input("Qual tarefa deseja concluir?: "))
+    alterar = str(input("Qual tarefa deseja concluir? |Digite o nome|: "))
     validacao = True
     for i in lista:
         if i['tarefa'] == alterar:
             validacao = False
             if i['status'] == 'pendente':
                 i['status'] = 'concluido'
-                system('cls')
+                system('clear')
                 print("Tarefa concluida!!!")
             else:
-                system('cls')
+                system('clear')
                 print("Tarefa já estava concluida!!!")
     if validacao == True:
-        system('cls')
+        system('clear')
         print("Tarefa não encontrada")
     
 def listar_tarefas():
@@ -133,8 +133,8 @@ Status: {i['status']}
 def pesquisar_tarefa():
     listar_nomes()
     print("")
-    Escolha = str(input('Qual tarefa você deseja pesquisar? '))
-    system('cls')
+    Escolha = str(input('Qual tarefa você deseja pesquisar? |Digite o nome|: '))
+    system('clear')
     validacao = True
     for c in lista:
         if c ['tarefa'] == Escolha:
@@ -145,14 +145,14 @@ def pesquisar_tarefa():
             print(f"Status: {c['status']}")
             print("-------------------------------------------")
     if validacao == True:
-        system('cls')
+        system('clear')
         print("Tarefa não encontrada!!!")
 
 def editar_tarefa():
     listar_nomes()
     print("")
-    editar = input("Qual tarefa deseja editar?: ")
-    system('cls')
+    editar = input("Qual tarefa deseja editar? |Digite o nome|: ")
+    system('clear')
     validacao = True
     for i in lista:
         if i['tarefa'] == editar:
@@ -166,25 +166,25 @@ Status: {i['status']}
             opc = menu_editar()
             match opc:
                 case 1:
-                    system('cls')
+                    system('clear')
                     nova_descricao = str(input("Nova descrição: "))
                     i['tarefa'] = nova_descricao
-                    system('cls')
+                    system('clear')
                     print("Alterado com sucesso!!!")
                 case 2:
-                    system('cls')
+                    system('clear')
                     nova_data = str(input("Nova data: "))
                     i['data'] = nova_data
-                    system('cls')
+                    system('clear')
                     print("Alterado com sucesso!!!")
                 case 3:
-                    system('cls')
+                    system('clear')
                     novo_local = str(input("Novo local: "))
                     i['local'] = novo_local
-                    system('cls')
+                    system('clear')
                     print("Alterado com sucesso!!!")
                 case 4:
-                    system('cls')
+                    system('clear')
                     nova_descricao = str(input("Nova descrição: "))
                     nova_data = str(input("Nova data: "))
                     novo_local = str(input("Novo local: "))
@@ -195,26 +195,26 @@ Status: {i['status']}
                         'local': novo_local,
                         'status': 'Pendente'
                     }
-                    system('cls')
+                    system('clear')
                     print("Alterado com sucesso!!!")
     if validacao == True:
-        system('cls')
+        system('clear')
         print("Tarefa não encontrada!!!")
 
 def excluir_tarefa():
     listar_nomes()
     print('')
-    tarefa = str(input("Qual tarefa deseja excluir: "))
+    tarefa = str(input("Qual tarefa deseja excluir |Digite o nome|: "))
     validacao = True
     for i in lista:
         if i['tarefa'] == tarefa:
             validacao = False
             local = lista.index(i)
             lista.pop(local)
-            system('cls')
+            system('clear')
             print("excluido com sucesso!!!")       
     if validacao == True:
-        system('cls')
+        system('clear')
         print("Tarefa não encontrada!!!")
 
 def programa():
@@ -232,7 +232,7 @@ def programa():
                 if len(lista) == 0:
                     print('Você não possui nenhuma tarefa!!')
                 else:
-                    system('cls')
+                    system('clear')
                     listar_tarefas()
             case 4:
                 if len(lista) == 0:

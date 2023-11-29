@@ -110,8 +110,9 @@ def concluir_tarefa():
     for i in lista:
         if i['tarefa'] == alterar:
             i['status'] = 'concluido'
+            system('cls')
             print("Tarefa concluida!!!")
-
+    
 def listar_tarefas():
     for i in lista:
         print(f'''Tarefa: {i['tarefa']}

@@ -17,7 +17,7 @@ def menu_principal():
 1 - Cadastrar um tarefa
 2 - Marcar tarefa como concluida
 3 - Listar todas as tarefas
-4 - pesquisar_tarefar uma tarefa
+4 - pesquisar uma tarefa
 5 - Editar uma tarefa
 6 - Excluir uma tarefa
 7 - Sair

@@ -107,14 +107,10 @@ def concluir_tarefa():
     listar_nomes()
     print("")
     alterar = str(input("Qual tarefa deseja concluir?: "))
-    o = 1
     for i in lista:
         if i['tarefa'] == alterar:
-            o += 1
             i['status'] = 'concluido'
-        if o == 1:
-            print("Tarefa não encontrada!!!")
-            o = 0
+            print("Tarefa concluida!!!")
 
 def listar_tarefas():
     for i in lista:
